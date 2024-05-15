@@ -1,0 +1,215 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+// Route Default / homepage
+Route::get('/', function () {
+  return view('welcome');
+})->name("homepage");
+
+// Route Beranda
+Route::get("/beranda", function () {
+  sleep(3);
+  return redirect()->route("homepage");
+});
+
+// contoh 1 Dasar
+Route::get('/users', function () {
+  $users = [
+    [
+      "id" => 1,
+      "nama" => 'Ronald Alberty',
+      "umur" => 20,
+    ],
+    [
+      "id" => 2,
+      "nama" => 'Kevin Leonardo',
+      "umur" => 24,
+    ],
+    [
+      "id" => 3,
+      "nama" => 'Stefano Michael',
+      "umur" => 20,
+    ]
+  ];
+
+  return response()->json($users);
+})->name("users.list");
+
+// contoh 2 Advanced
+Route::get('/users/{id?}', function (?String $id = null) {
+  $users = [
+    [
+      "id" => 1,
+      "nama" => 'Ronald Alberty',
+      "umur" => 20,
+    ],
+    [
+      "id" => 2,
+      "nama" => 'Kevin Leonardo',
+      "umur" => 24,
+    ],
+    [
+      "id" => 3,
+      "nama" => 'Stefano Michael',
+      "umur" => 20,
+    ]
+  ];
+  
+  $result = [];
+  if ($id != null){
+    foreach ($users as $user) {
+      if ($user['id'] == $id) {
+        $result = $user;
+      }
+    }
+  } else {
+    $result = $users;
+  }
+
+  return response()->json($result);
+})->name("users.detail");
+
+// contoh 3 request
+Route::get('/home', function(Request $request){
+  return $request->query();
+});
+
+// contoh 4 Utama
+Route::get('/users', function (Request $request) {
+  $users = [
+    [
+      "id" => 1,
+      "nama" => 'Ronald Alberty',
+      "umur" => 20,
+    ],
+    [
+      "id" => 2,
+      "nama" => 'Kevin Leonardo',
+      "umur" => 24,
+    ],
+    [
+      "id" => 3,
+      "nama" => 'Stefano Michael',
+      "umur" => 20,
+    ]
+  ];
+  
+  $result = [];
+  if ($request->query() != null){
+    foreach ($users as $user) {
+      if (
+        $user["id"] == $request->id ||
+        $user["nama"] == $request->nama ||
+        $user["umur"] == $request->umur
+      ){
+        array_push($result, $user);
+      }
+    }
+  } else {
+    $result = $users;
+  }
+
+  return $result;
+})->name("users.utama");
+
+
+// // Contoh 5 Named Route
+// Route::name('admin.')->group(function () {
+  
+//   Route::get("admins/", function(){
+//     $users = [
+//       "Ronald Alberty",
+//       "Kevin Leonardo",
+//       "Stefano Michael"
+//     ];
+//     return response()->json($users);
+//   })->name("list");
+
+//   Route::get("admins/{id}", function($id){
+//     $users = [
+//       "Ronald Alberty",
+//       "Kevin Leonardo",
+//       "Stefano Michael"
+//     ];
+//     return response()->json($users[$id]);
+//   })->name("detail");
+// });
+
+
+// // Contoh 6 Prefix
+// Route::prefix('admins')->group(function(){
+//   Route::get("/", function(){
+//     $users = [
+//       "Ronald Alberty",
+//       "Kevin Leonardo",
+//       "Stefano Michael"
+//     ];
+//     return response()->json($users);
+//   });
+//   // localhost:8000/admins/
+
+//   Route::get("/{id}", function($id){
+//     $users = [
+//       "Ronald Alberty",
+//       "Kevin Leonardo",
+//       "Stefano Michael"
+//     ];
+//     return response()->json($users[$id]);
+//   });
+//   // localhost:8000/admins/{id}
+
+// });
+
+
+// contoh 7 Name & Prefix
+Route::prefix('admins')->name('admin.')->group(function(){
+  Route::get("/", function(){
+    $users = [
+      "Ronald Alberty",
+      "Kevin Leonardo",
+      "Stefano Michael"
+    ];
+    return response()->json($users);
+  })->name("list");
+  // url = localhost:8000/admins/.
+  // name = admin.list
+  
+  Route::get("/{id}", function($id){
+    $users = [
+      "Ronald Alberty",
+      "Kevin Leonardo",
+      "Stefano Michael"
+    ];
+    return response()->json($users[$id]);
+  })->name("details");
+  // url = localhost:8000/admins/{id}
+  // name = admin.details
+
+});
+
+
+// contoh var_dump
+// Route::get('/users/{id}', function ($id) {
+//   var_dump($id);
+// });
+
+
+
+
+// Latihan 1
+// Route::get('/users', function () {
+//     return view("users.users", [
+//         "id" => 1,
+//         "name" => "<h4 style='color:red'>John Doe</h4>",
+//         "age" => 25
+//     ]);
+// })->name("homepage");
+
+// Route::get('/users', function (Request $request) {
+//     return view("users.users", [
+//         "nama" =>$request->nama,
+//     ]);
+// });
+// End Latihan
