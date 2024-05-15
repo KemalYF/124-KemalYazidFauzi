@@ -23,7 +23,7 @@ Route::get('/about', function () {
     return view('layout.about');
 })->name('about');
 
-// yang ini masih bingung bikin desainnya, jadi belum dibikin, sama notif juga nanti bukan page, jadi pop up
+// yang ini masih bingung bikin desainnya, jadi belum dibikin, sama notif juga nanti bukan page, jadi pop up / logo
 Route::get('/notifications', function () {
     return view('notifications');
 })->name('notifications');

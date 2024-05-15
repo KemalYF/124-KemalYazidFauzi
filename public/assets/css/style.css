@@ -38,15 +38,29 @@ body::-webkit-scrollbar-thumb {
 /* Header */
 header.navbar-container {
     width: 100%;
-    max-width: 1200px;
-    padding-block: 1rem;
+    /* max-width: 1200px; */
+    padding-block: 0.5rem;
     margin-inline: auto;
 
     display: flex;
     justify-content: space-between;
+    padding: 1% 6%;
     align-items: center;
+    
+    /* absolut / sticky*/
+    position: absolute;
+    z-index: 1000;
+    transition: background-color 0.3s, padding 0.3s;
+    top: 0;
 }
  
+header.navbar-container.sticky {
+    position: fixed;
+    background: white;
+    padding-block: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 header.navbar-container .logo img {
     width: 200px;
     margin-top: 5%;
@@ -71,13 +85,21 @@ header.navbar-container .nav-list li a {
     text-decoration: none;
     font-size: 1.15rem;
     font-weight: 500;
-    color: black;
+    color: white;
     
     transition: all 0.2s ease-in-out;
 }
  
 header.navbar-container .nav-list li:hover a {
     background-color: #DA6220;
+    color: white;
+}
+
+header.navbar-container.sticky .nav-list li a {
+    color: black;
+}
+
+header.navbar-container.sticky .nav-list li:hover a { 
     color: white;
 }
 
@@ -94,7 +116,7 @@ main {
 
 /* jumbotron */
 .jumbotron {
-    background-image: url(../images/hotel.jpg);
+    background-image: url(../images/hotel-3.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
