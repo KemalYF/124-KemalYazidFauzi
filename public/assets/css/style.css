@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Quicksand", sans-serif;
     height: 100vh;
@@ -13,6 +17,20 @@ body {
 
     display: flex;
     flex-direction: column;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: linear-gradient(to top, rgb(148, 106, 43), rgb(78, 45, 4));
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(78, 45, 4);
+    border-radius: 20px;
+    border: 3px solid rgb(253, 246, 236);
 }
 
 /* Untuk BG color niatnya ingin menggunakan coklat / oren, tapi belum jadi semua, jadi masih default putih*/
@@ -30,37 +48,37 @@ header.navbar-container {
 }
  
 header.navbar-container .logo img {
-  width: 200px;
-  margin-top: 5%;
+    width: 200px;
+    margin-top: 5%;
 }
  
 header.navbar-container .nav-list ul {
-  padding-left: 0;
- 
-  display: flex;
-  justify-content: center;
-  gap: 2rem 1rem;
+    padding-left: 0;
+    
+    display: flex;
+    justify-content: center;
+    gap: 2rem 1rem;
 }
  
 header.navbar-container .nav-list li {
-  list-style-type: none;
+    list-style-type: none;
 }
  
 header.navbar-container .nav-list li a {
-  padding: 0.5rem 1.5rem;
-  border-radius: 999px;
- 
-  text-decoration: none;
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: black;
- 
-  transition: all 0.2s ease-in-out;
+    padding: 0.5rem 1.5rem;
+    border-radius: 999px;
+    
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: black;
+    
+    transition: all 0.2s ease-in-out;
 }
  
 header.navbar-container .nav-list li:hover a {
-  background-color: #DA6220;
-  color: white;
+    background-color: #DA6220;
+    color: white;
 }
 
 /* main */
@@ -72,30 +90,87 @@ main {
     padding: 4rem 2rem;
     display: flex;
     align-items: center;
-  }
-  
-  main .content {
+}
+
+/* jumbotron */
+.jumbotron {
+    background-image: url(../images/hotel.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+    background-color: #DA6220;
+}
+
+.jumbotron-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jumbotron-description h1 {
+    font-size: 3.5rem;
+    color: white;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.jumbotron-about {
+    border: 1px solid #DA6220;
+    background-color: #DA6220;
+    margin: 15px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.jumbotron-about a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 1em 1.5em;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.jumbotron-about:hover {
+    border: 1px solid white;
+    animation: pulse 1s ease-in-out;
+    transition: all 0.40s ease-in-out;
+    background-color: rgb(63, 31, 10);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 
+        0 0 25px rgb(104, 47, 9),
+        0 0 55px rgb(247, 110, 17);
+    }
+}
+
+/* hero */
+main .hero {
     flex: 1;
     display: flex;
     align-items: center;
-  }
+}
   
-  main .content .content-description {
+main .hero .hero-description {
     flex: 1 1;
-  }
+}
   
-  main .content .content-description .title {
+main .hero .hero-description .hero-title {
     margin-block: 1rem;
     font-size: 3.5rem;
     color: #DA6220;
-  }
+}
   
-  main .content .content-description p {
+  main .hero .hero-description p {
     font-size: 1.2rem;
     line-height: 1.7rem;
   }
   
-  main .content .content-description button {
+main .hero .hero-description button {
     padding: 0.8rem 2.5rem;
     border: 3px solid transparent;
     border-radius: 999px;
@@ -108,22 +183,31 @@ main {
     color: white;
     cursor: pointer;
     transition: all 0.15s ease-in;
-  }
-  
-  main .content .content-description button:hover {
+}
+
+main .hero .hero-description button a{
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
+}
+main .hero .hero-description button:hover {
     border: 3px solid #DA6220;
     background-color: transparent;
     color: black;
-  }
+}
+
+main .hero .hero-description button:hover a{
+    color: #DA6220;
+}
   
-  main .content .content-image {
+main .hero .hero-content-image {
     flex: 1;
     display: flex;
-  }
+}
   
-  main .content .content-image img {
+main .hero .hero-content-image img {
     width: 300px;
     min-width: 400px;
     margin: auto;
     margin-left: 36%;
-  }
+}
