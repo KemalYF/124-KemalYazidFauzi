@@ -4,10 +4,10 @@ Deskripsi   : Aplikasi web untuk melihat, memesan dan bisa melakukan reservasi d
 <br>
 <br>
 Update 1 : <br>
--menambahkan route untuk setiap page beserta navbar (baru ada home, room, favorite, contact, logo navbar)
--menambahkan hero / jambotron untuk content pada page home
--masih kurang pada body seperti background, card beserta listnya, dll
--masih bingung untuk page / logo pada notifikasi dan login
+-menambahkan route untuk setiap page beserta navbar (baru ada home, room, favorite, contact, logo navbar)<br>
+-menambahkan hero / jambotron untuk content pada page home<br>
+-masih kurang pada body seperti background, card beserta listnya, dll<br>
+-masih bingung untuk page / logo pada notifikasi dan login<br>
 
 <br>
 
