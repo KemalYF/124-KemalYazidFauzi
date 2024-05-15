@@ -8,7 +8,8 @@ Update 1 : <br>
 -menambahkan hero / jambotron untuk content pada page home<br>
 -masih kurang pada body seperti background, card beserta list databasenya, dll<br>
 -masih bingung untuk page / logo pada notifikasi dan login<br>
--masih belum sticky navbarnya<br>
+-masih belum sticky navbarnya, masih ada yang kurang, kek di warna sama mungkin masih ada bug<br>
+-datanya belum di bikin, belum ngerti apa aja yang harus ada<br>
 
 <br>
 
