@@ -1,6 +1,15 @@
 Nama        : Kemal Yazid Fauzi <br>
 Judul       : Groove Hotel<br>
-Deskripsi   : Aplikasi web untuk melihat, memesan dan bisa melakukan reservasi di hotel<br>
+Deskripsi   : Aplikasi web untuk melihat, memesan dan bisa melakukan reservasi di hotel
+<br>
+<br>
+Update 1 : <br>
+-menambahkan route untuk setiap page beserta navbar (baru ada home, room, favorite, contact, logo navbar)
+-menambahkan hero / jambotron untuk content pada page home
+-masih kurang pada body seperti background, card beserta listnya, dll
+-masih bingung untuk page / logo pada notifikasi dan login
+
+<br>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
