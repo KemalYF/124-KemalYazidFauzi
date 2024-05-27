@@ -14,9 +14,9 @@ body {
     font-family: "Quicksand", sans-serif;
     height: 100vh;
     margin: 0;
-
-    display: flex;
-    flex-direction: column;
+    scroll-behavior: smooth;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 body::-webkit-scrollbar {
@@ -105,24 +105,34 @@ header.navbar-container.sticky .nav-list li:hover a {
 
 /* main */
 main {
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-columns: auto;
+    gap: 0;
+    width: 100%;
+    align-items: center;
+    margin-inline: auto;
+
+    /* flex: 1;
     width: 100%;
     max-width: 1200px;
     margin-inline: auto;
     padding: 4rem 2rem;
-    display: flex;
-    align-items: center;
+    display: grid;
+    align-items: center; */
 }
 
 /* jumbotron */
 .jumbotron {
-    background-image: url(../images/hotel-3.jpg);
+    background-image: url(../images/hotel-home.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
     position: relative;
     background-color: #DA6220;
+    background-attachment: fixed;
+    grid-row: 1 / 2;
 }
 
 .jumbotron-description {
@@ -138,43 +148,119 @@ main {
     margin-top: 20%;
 }
 
-.jumbotron-about {
-    border: 1px solid #DA6220;
-    background-color: #DA6220;
-    margin: 15px;
-    border-radius: 999px;
+.jumbotron-button {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    border-radius: 5px 0 0 5px; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700;
+    font-style: oblique;
+    background: transparent;
     cursor: pointer;
-}
-
-.jumbotron-about a{
+    transition: all 0.3s ease;
+    position: relative;
     display: inline-block;
-    text-decoration: none;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.buton {
+    background: linear-gradient(0deg, #f05f11 0%, #DA6220 100%);
+    line-height: 45px;
+    padding: 0;
+    border: none;
+}
+
+.buton span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0.1em 0.5em;
     color: white;
-    padding: 1em 1.5em;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.jumbotron-about:hover {
-    border: 1px solid white;
-    animation: pulse 1s ease-in-out;
-    transition: all 0.40s ease-in-out;
-    background-color: rgb(63, 31, 10);
+.buton:before,
+.buton:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    box-shadow:
+    -7px -7px 20px 0px rgba(255,255,255,.9),
+    -4px -4px 5px 0px rgba(255,255,255,.9),
+    7px 7px 20px 0px rgba(0,0,0,.2),
+    4px 4px 5px 0px rgba(0,0,0,.3);
+    transition: all 0.3s ease;
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 
-        0 0 25px rgb(104, 47, 9),
-        0 0 55px rgb(247, 110, 17);
-    }
+.buton:before{
+    height: 0%;
+    width: 2px;
+}
+
+.buton:after {
+    width: 0%;
+    height: 2px;
+}
+
+.buton:hover{
+    color: rgb(255, 255, 255);
+    background: transparent;
+}
+
+.buton:hover:before {
+    height: 100%;
+}
+
+.buton:hover:after {
+    width: 100%;
+}
+
+.buton span:before,
+.buton span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: rgb(250, 250, 250);
+    box-shadow:
+    -7px -7px 20px 0px rgba(255,255,255,.9),
+    -4px -4px 5px 0px rgba(255,255,255,.9),
+    7px 7px 20px 0px rgba(0,0,0,.2),
+    4px 4px 5px 0px rgba(0,0,0,.3);
+    transition: all 0.3s ease;
+}
+
+.buton span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.buton span:after {
+    height: 2px;
+    width: 0%;
+}
+
+.buton span:hover:before {
+    height: 100%;
+}
+
+.buton span:hover:after {
+    width: 100%;
 }
 
 /* hero */
 main .hero {
-    flex: 1;
+    grid-row: 2 / 3;
     display: flex;
     align-items: center;
+    height: 90vh;
+    padding: 2rem 4rem;
 }
   
 main .hero .hero-description {
@@ -187,10 +273,10 @@ main .hero .hero-description .hero-title {
     color: #DA6220;
 }
   
-  main .hero .hero-description p {
+main .hero .hero-description p {
     font-size: 1.2rem;
     line-height: 1.7rem;
-  }
+}
   
 main .hero .hero-description button {
     padding: 0.8rem 2.5rem;
@@ -232,4 +318,799 @@ main .hero .hero-content-image img {
     min-width: 400px;
     margin: auto;
     margin-left: 36%;
+}
+
+/* item */
+.section-dataroom-title {
+    font-family: 'Gilda Display', serif;
+    text-align: left;
+    margin-bottom: 19px;
+    align-items: left;
+    padding: 0 4rem;
+}
+
+.section-dataroom-title p {
+    font-size: 1.5rem;
+    color: #555;
+    letter-spacing: 1.5px;
+}
+
+.section-dataroom-title h2 {
+    font-size: 2.5rem;
+    color: #DA6220;
+}
+
+.dataroom-container {
+    max-width: 1350px;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 4rem; */
+
+    /* 4 column card atas, dan 2 bawah */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 100%;
+    padding: 4rem;
+
+    /* background-color: #fcfcfc;
+    width: 100%;
+    height: 170vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    flex-direction: column; */
+}
+
+.dataroom-container .card-dataroom:nth-child(5),
+.dataroom-container .card-dataroom:nth-child(6) {
+    grid-column: span 2;
+}
+
+.card-dataroom {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    
+    /* width: auto;
+    height: 70vh;
+    padding: 1rem; */
+
+
+    /* display: flex;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 20%;
+    height: 60vh;
+    margin: 5px;
+    align-self: center; */
+}
+
+.card-dataroom:hover {
+    transform: scale(1.05);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.dataroom-image {
+    overflow: hidden;
+    /* object-fit: cover; */
+    /* background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+    transition: transform 0.3s ease-in-out;
+    /* height: 90vh;
+    position: relative; */
+}
+
+.dataroom-image img {
+    /* width: 90%; */
+    width: 100%;
+    height: 60vh;
+    /* margin-bottom: 20px; */
+    transition: transform 0.8s ease-in-out;
+}
+
+.card-dataroom:hover .dataroom-image img {
+    transform: scale(1.1);
+}
+
+.dataroom-booking {
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    z-index: 3; 
+    writing-mode: vertical-rl; 
+    -ms-transform: rotate(180deg); 
+    -o-transform: rotate(180deg); 
+    -moz-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg); 
+    transform: rotate(180deg); 
+    text-orientation: mixed; 
+    text-transform: uppercase; 
+    color: #fff; 
+    font-size: 15px; 
+    font-weight: 400; 
+    letter-spacing: 3px; 
+    background: transparent; 
+    border: 1px solid rgba(255,255,255,0.5); 
+    font-family: 'Barlow Condensed', sans-serif; 
+    padding: 10px 3px; 
+    line-height: 1.5em;
+}
+
+.dataroom-name {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 3;
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: 'Gilda Display', serif;
+    transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.dataroom-name::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #ccc;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.dataroom-price {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    z-index: 3;
+    color: #fff;
+    font-size: 1rem;
+    opacity: 0;
+    font-family: 'Gilda Display', serif;
+    transition: bottom 0.3s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.dataroom-detail {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-transform: uppercase;
+    z-index: 2;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Gilda Display', serif;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.card-dataroom:hover .dataroom-name{
+    bottom: 70px;
+}
+
+.card-dataroom:hover .dataroom-name::after{
+    opacity: 1;
+    width: 120%;
+}
+
+.card-dataroom:hover .dataroom-price{
+    bottom: 50px;
+    opacity: 1;
+}
+
+.card-dataroom:hover .dataroom-detail {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* surround */
+.container-surround {
+    /* background-color: #fcfcfc;
+    padding: 4rem 2rem;
+    height: 80vh;
+    display: flex;
+    flex-direction: column; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    height: 100vh;
+}
+
+.surround-description {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.surround-description h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.surround-description p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.surround-carousel {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.surround-image {
+    max-width: 600px;
+}
+
+.surround-image img {
+    width: 90%;
+    height: 60vh;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.surround-image p {
+    text-align: center;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Video */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.video-preview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 700vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    border: none;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.section-icon {
+    font-size: 0.7rem;
+    color: #DA6220;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-size: 1.3rem;
+    font-family: 'Barlow Condensed', sans-serif; 
+    text-align: center;
+    color: #DA6220;
+    font-weight: 700;
+    letter-spacing: 6px; 
+    margin-bottom: 5px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-family: 'Gilda Display', serif;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* discover facilities */
+.container-discover {
+    background-color: #f5f1f1;
+    padding: 4rem 2rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-discover {
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 90%;
+    margin: 5px;
+    align-self: center;
+}
+
+.card-discover-image {
+    flex: 1;
+    min-width: 580px;
+    height: 49vh;
+}
+
+.card-discover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-discover-content {
+    flex: 2;
+    padding: 20px;
+    background-color: #f9f3ec;
+}
+
+.card-discover-content h3 {
+    color: #DA6220;
+    font-size: 0.8rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-discover-content h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.card-discover-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 2em;
+}
+
+/* hotel-facilities-home */
+.container-facilities {
+    background-color: #fcfcfc;
+    padding: 4rem 2rem;
+    height: 160vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-facilities-title {
+    font-family: 'Gilda Display', serif;
+    text-align: left;
+    margin-bottom: 19px;
+    align-items: left;
+    padding: 0 4rem;
+}
+
+.section-facilities-title p {
+    font-size: 1.5rem;
+    color: #555;
+    letter-spacing: 1.5px;
+}
+
+.section-facilities-title h2 {
+    font-size: 2.5rem;
+    color: #DA6220;
+}
+
+.facilities-description {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1rem;
+    height: 120vh;
+}
+
+.data-facility{
+    width: 58vh;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem;
+    padding: 1.5rem;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.data-facility h2 {
+    color: #DA6220;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.data-facility p {
+    color: #555;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    font-weight: 400; 
+    line-height: 1.75em; 
+}
+
+.data-facility i {
+    font-size: 2.5rem;
+    color: #DA6220;
+    margin-bottom: 1rem;
+}
+
+/* container-footer */
+.container-footer {
+    background-image: url(../images/hotel-footer.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+    position: relative;
+    background-color: #DA6220;
+    background-attachment: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.description-footer {
+    /* display: flex;
+    flex-direction: column; */
+    align-items: center;
+    padding: 5rem 4rem;
+    position: relative;
+    top: -35vh;
+}
+
+.section-subtitle-footer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    position: absolute;
+    /* max-width: 1200px; */
+    width: 100vh;
+    padding: 2.5rem 2.5rem;
+}
+
+.section-icon-footer {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 3vh;
+}
+
+.section-subtitle-footer h4 {
+    font-size: 24px;
+    margin-bottom: 5vh;
+    font-weight: 500;
+    letter-spacing: 2px; 
+    text-align: left;
+    color: white;
+    font-family: 'Gilda Display', serif;
+}
+
+.section-reservation {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .reservation-icon {
+    flex-direction: row;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 3vh;
+} */
+
+.reservation-description {
+    color: white;
+    font-family: 'Gilda Display', serif;
+}
+
+.reservation-description p{
+    font-size: 17px;
+    margin-bottom: 1vh;
+    letter-spacing: 2px; 
+}
+
+.reservation-description span a{
+    text-decoration: none;
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+}
+
+.card-container-footer {
+    position: relative;
+    z-index: 1;
+}
+
+.card-footer {
+    background-color: #F8F5F0;
+    padding: 2.5rem 2.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 70vh;
+    margin: 0 auto;
+    position: absolute;
+    top: -20px;
+    transform: translateX(170%);
+    z-index: 2;
+}
+
+.card-footer p {
+    font-size: 15px;
+    font-family: 'Barlow Condensed', sans-serif; 
+    color: #da61208c;
+    font-weight: 200;
+    letter-spacing: 3px; 
+    margin-bottom: 5px;
+}
+
+.card-footer h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: 200;
+    letter-spacing: 3px; 
+    font-family: 'Gilda Display', serif;
+    margin-bottom: 20px;
+}
+
+.card-footer form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-footer label {
+    margin-top: 1rem;
+    font-size: 17px;
+    font-family: 'Gilda Display', serif;
+}
+
+.card-footer input{
+    margin-top: 0.5rem;
+    padding: 1rem;
+    font-size: 15px;
+    font-family: 'Barlow Condensed', sans-serif;
+
+    border: 2px solid #8d45218c;
+    border-radius: 5px 0 0 5px; 
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+}
+
+.card-footer input:focus {
+    animation: shine 850ms ease-out infinite alternate;
+    outline: none;
+}
+
+.card-footer input:hover{
+    border:2px solid #CC7F31;
+    box-shadow: 0 0 5px #CC7F31, inset 0 0 5px #CC7F31, 0 2px 0 rgb(0, 0, 0);
+}
+
+@keyframes shine {
+    0% {
+        border-color: rgb(92, 42, 13);
+        box-shadow: 0 0 5px rgb(141, 59, 12), inset 0 0 5px rgb(141, 59, 11), 0 2px 0 rgb(0, 0, 0);
+    }
+
+    100% {
+        border-color: rgb(163, 71, 10);
+        box-shadow: 0 0 20px rgb(163, 71, 10), inset 0 0 10px rgb(163, 71, 10), 0 2px 0 rgb(0, 0, 0);
+    }
+}
+
+.card-footer select {
+    margin-top: 1.2rem;
+    padding: 1rem;
+    border: 2px solid #8d45218c;
+    font-size: 15px;
+    font-family: 'Barlow Condensed', sans-serif;
+    border-radius: 5px 0 0 5px; 
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+}
+
+.card-footer select:focus {
+    animation: shine 850ms ease-out infinite alternate;
+    outline: none;
+}
+
+.card-footer select:hover{
+    border:2px solid #CC7F31;
+    box-shadow: 0 0 5px #CC7F31, inset 0 0 5px #CC7F31, 0 2px 0 rgb(0, 0, 0);
+}
+
+.button-footer {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    border-radius: 5px 0 0 5px; 
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.btn {
+    background: linear-gradient(0deg, rgba(255,151,0,1) 0%, rgba(251,75,2,1) 100%);
+    line-height: 50px;
+    padding: 0;
+    border: none;
+}
+.btn span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.btn:before,
+.btn:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: rgba(251,75,2,1);
+    box-shadow:
+    -7px -7px 20px 0px rgba(255,255,255,.9),
+    -4px -4px 5px 0px rgba(255,255,255,.9),
+    7px 7px 20px 0px rgba(0,0,0,.2),
+    4px 4px 5px 0px rgba(0,0,0,.3);
+    transition: all 0.3s ease;
+}
+.btn:before{
+    height: 0%;
+    width: 2px;
+}
+
+.btn:after {
+    width: 0%;
+    height: 2px;
+}
+
+.btn:hover{
+    color: rgba(251,75,2,1);
+    background: transparent;
+}
+
+.btn:hover:before {
+    height: 100%;
+}
+
+.btn:hover:after {
+    width: 100%;
+}
+
+.btn span:before,
+.btn span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: rgba(251,75,2,1);
+    box-shadow:
+    -7px -7px 20px 0px rgba(255,255,255,.9),
+    -4px -4px 5px 0px rgba(255,255,255,.9),
+    7px 7px 20px 0px rgba(0,0,0,.2),
+    4px 4px 5px 0px rgba(0,0,0,.3);
+    transition: all 0.3s ease;
+}
+
+.btn span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.btn span:after {
+    height: 2px;
+    width: 0%;
+}
+
+.btn span:hover:before {
+    height: 100%;
+}
+
+.btn span:hover:after {
+    width: 100%;
+}
+
+/* footer */
+.main-footer {
+    background-color: #DA6220;
+    color: white;
+    padding: 0.5rem 0 0;
+    /* text-align: center; */
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    /* text-align: center; */
+    align-items: flex-start;
+    padding: 1.8rem 3rem;
+}
+
+.footer-content {
+    width: 300px;
+    margin: 1rem;
+}
+
+.footer-content p {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+    transition: 250ms ease-in-out;
+    margin: auto;
+}
+
+.footer-content p a:hover {
+    color: #6d3010;
+    font-weight: 1000;
+}
+
+.footer-content h2 {
+    padding: 1.5rem 1.5rem 1.5rem 0;
+}
+
+.footer-content h3 {
+    padding: 1rem 1rem 1rem 0;
+}
+
+.footer-icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-icon {
+    padding: 0 2rem 0.5rem 0;
+    margin: 1rem 0.3rem 0 0;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.footer-icon a {
+    font-size: 1.9rem;
+    transition: 250ms ease-in-out;
+}
+
+.footer-icon a:hover {
+    color: #6d3010;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgb(232, 249, 253, 0.50);
+    background-color: #6d3010;
+    color: snow;
+    text-align: center;
+    font-size: 14px;
+    padding: 1rem;
 }
