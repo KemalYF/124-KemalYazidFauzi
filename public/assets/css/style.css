@@ -501,7 +501,7 @@ main .hero .hero-content-image img {
 
 .card-dataroom:hover .dataroom-name::after{
     opacity: 1;
-    width: 120%;
+    width: 110%;
 }
 
 .card-dataroom:hover .dataroom-price{

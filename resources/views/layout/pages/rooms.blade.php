@@ -5,7 +5,7 @@
 @section('content')
 
 @include('layout.components.jumbotron')
-@include('layout.components.sectionRoom')
+@include('layout.components.dataRoom')
 
 
 @endsection
