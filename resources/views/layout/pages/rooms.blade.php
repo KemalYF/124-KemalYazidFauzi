@@ -4,6 +4,8 @@
 
 @section('content')
 
-<h1>Rooms & Suites</h1>
+@include('layout.components.jumbotron')
+@include('layout.components.sectionRoom')
+
 
 @endsection

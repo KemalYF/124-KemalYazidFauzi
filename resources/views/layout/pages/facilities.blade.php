@@ -4,6 +4,8 @@
 
 @section('content')
 
+@include('layout.components.jumbotron')
 @include('layout.components.dataFacilities')
+@include('layout.components.contactFooter')
 
 @endsection

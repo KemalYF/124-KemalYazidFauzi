@@ -4,6 +4,7 @@
 
 @section('content')
 
-@include('layout.components.hero')
+@include('layout.components.jumbotron')
+@include('layout.components.contactFooter')
 
 @endsection
