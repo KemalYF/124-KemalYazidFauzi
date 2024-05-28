@@ -3,16 +3,7 @@ Judul       : Groove Hotel<br>
 Deskripsi   : Aplikasi web untuk melihat, memesan dan bisa melakukan reservasi di hotel
 <br>
 <br>
-Update 1 : <br>
--menambahkan route untuk setiap page beserta navbar (baru ada home, room, favorite, contact, logo navbar)<br>
--menambahkan hero / jambotron untuk content pada page home<br>
--update hanya berfokus pada page home saja<br>
--masih kurang pada body seperti background, card beserta list databasenya, dll<br>
--masih bingung untuk page / logo pada notifikasi dan login<br>
--masih belum sticky navbarnya, masih ada yang kurang, kek di warna sama mungkin masih ada bug<br>
--datanya belum di bikin, belum ngerti apa aja yang harus ada<br>
 
-<br>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
