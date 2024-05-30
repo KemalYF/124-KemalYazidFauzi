@@ -21,18 +21,20 @@ Route::controller(RoomController::class)->group( function () {
     Route::get('/rooms/{id}', 'show')->name('rooms.show');
 });
 
-
-
-// yang ini masih bingung bikin desainnya, jadi belum dibikin
-
 Route::get('/facilities', function () {
     return view('layout.pages.facilities');
 })->name('facilities');
+
+Route::get('/booking', function () {
+    return view('layout.pages.booking');
+})->name('booking');
 
 Route::get('/about', function () {
     return view('layout.pages.contact');
 })->name('about');
 
+
+// yang ini masih bingung bikin desainnya, jadi belum dibikin
 Route::get('/login', function () {
     return view('login');
 })->name('login');

@@ -4,7 +4,7 @@
 
 @section('content')
 
-@include('layout.components.jumbotron')
+@include('layout.components.jumbotronRoom')
 @include('layout.components.dataRoom')
 
 
