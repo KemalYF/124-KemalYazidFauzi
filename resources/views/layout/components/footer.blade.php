@@ -12,10 +12,11 @@
         </div>
         <div class="footer-content">
             <h2>Explore</h2>
-            <p><a href="#">Home</a></p>
-            <p><a href="{{ url('/room') }}">Room</a></p>
+            <p><a href="{{ url('/home') }}">Home</a></p>
+            <p><a href="{{ url('/rooms') }}">Room</a></p>
             <p><a href="{{ url('/facilities') }}">Facilities</a></p>
-            <p><a href="{{ url('/about') }}">Contact</a></p>
+            <p><a href="{{ url('/booking') }}">Booking</a></p>
+            <p><a href="{{ url('/contact') }}">Contact</a></p>
         </div>
         <div class="footer-content">
             <h2>Contact</h2>

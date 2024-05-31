@@ -3,42 +3,38 @@
 </div>
 <nav class="nav-list" aria-label="navbar">
     <ul>
-        <li class="nav__item"><a href="{{ url('/') }}">Home</a></li>
+        <li class="nav__item"><a href="{{ url('/home') }}">Home</a></li>
         <li class="nav__item"><a href="{{ url('/rooms') }}">Room</a></li>
         <li class="nav__item"><a href="{{ url('/facilities') }}">Facilities</a></li>
         <li class="nav__item"><a href="{{ url('/booking') }}">Booking</a></li>
-        <li class="nav__item"><a href="{{ url('/about') }}">Contact</a></li>
-        {{-- <li class="nav__item"><a href="{{ url('/about') }}">Id Name</a></li>
-        <li class="nav__item"><a href="{{ url('/') }}"><i class="fa-solid fa-right-to-bracket"></i></a></li> --}}
+        <li class="nav__item"><a href="{{ url('/contact') }}">Contact</a></li>
     </ul>
 </nav>
 <nav class="nav-list" aria-label="navbar">
     <ul class="nav__item">
-        {{-- <div class="auth">
-            @if(Auth::check())
-                <li><a href="{{ url('/profile') }}">{{ Auth::user()->name }}</a></li>
-            @else
-                <li><a href="{{ url('/login') }}"><i class="fa-solid fa-right-to-bracket"></i></a></li>
-            @endif
-        </div> --}}
         <div class="auth">
             @if(Auth::check())
-                <div class="dropdown">
-                    <button class="dropbtn">{{ Auth::user()->name }} <i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content">
-                        <a href="{{ url('/profile') }}">Profile</a>
-                        <a href="{{ url('/logout') }}"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                           Logout
-                        </a>
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </div>
+              <div class="dropdown">
+                <button class="dropbtn">
+                  <i class="fa fa-user"></i> {{ Auth::user()->email }} <span class="caret"></span>
+                </button>
+                <ul class="dropdown-content logged-in">  <li><a>Level: {{ Auth::user()->role }}</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li>
+                    <a href="{{ route('actionlogout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      <i class="fa fa-power-off"></i> Log Out
+                    </a>
+                    <form id="logout-form" action="{{ route('actionlogout') }}" method="POST" style="display: none;">
+                      @csrf
+                    </form>
+                  </li>
+                </ul>
+              </div>
             @else
-                <li><a href="{{ url('/login') }}"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+              <li><a href="{{ url('/login') }}"><i class="fa-solid fa-right-to-bracket"></i></a></li>
             @endif
+          </div>
         </div>
     </ul>
 </nav>

@@ -5,7 +5,7 @@
 @section('content')
 
 @include('layout.components.jumbotronBooking')
-
+@include('layout.components.bookingHotel')
 @include('layout.components.contactFooter')
 
 @endsection
