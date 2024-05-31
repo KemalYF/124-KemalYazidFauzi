@@ -1,6 +1,6 @@
 Nama        : Kemal Yazid Fauzi <br>
 Judul       : Groove Hotel<br>
-Deskripsi   : Aplikasi web untuk melihat, memesan dan bisa melakukan reservasi di hotel
+Deskripsi   : Aplikasi web untuk melihat katalog dalam hotel
 <br>
 <br>
 
